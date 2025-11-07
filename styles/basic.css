@@ -116,11 +116,48 @@ body {
     border-radius: 5px;
 }
 
-.cta-button:hover, .hero-button:hover, .details-button:hover .Zutaten-button:hover {
-	box-shadow: 0 0 10px #ffffff;
-	transition: ease-in-out 0.3s;
-	font-weight:bolder;
+/* Ersetzt deinen alten Hover-Block */
+.cta-button:hover, 
+.details-button:hover, 
+.hero-button:hover, 
+.Zutaten-button:hover {    
+    border: 2px solid #ffffff !important; 
+    color: #000000 !important; 
 }
+
+/* 2. Spezifische Invertierungs-Logik hinzufügen */
+
+/* A) Buttons, die normalerweise WEISS sind (cta-button, details-button) */
+/* Diese müssen auf Hover schwarz werden */
+.cta-button:hover, 
+.details-button:hover {
+    background-color: #000000 !important; /* Hintergrund: Schwarz */
+    color: #ffffff !important;            /* Text: Weiß */
+}
+
+
+/* B) Buttons, die normalerweise SCHWARZ/TRANSPARENT sind (hero-button, Zutaten-button) */
+/* Diese müssen auf Hover weiß werden */
+.hero-button:hover,
+.Zutaten-button:hover {
+    background-color: #ffffff !important; /* Hintergrund: Weiß */
+    color: #000000 !important;            /* Text: Schwarz */
+    border: 2px solid #000000 !important; /* Rahmen: Schwarz */
+    /* Die Zutaten-Buttons haben bereits einen weißen Rand, der bleibt */
+}
+
+/* Wichtig: Textfarbe in Links innerhalb der Buttons ebenfalls invertieren */
+.cta-button:hover a, 
+.details-button:hover a {
+    color: #ffffff !important;
+}
+.hero-button:hover a,.submit-button:hover a {
+    color: #000000 !important;
+} 
+.Zutaten-button:hover a {
+    color: #000000 !important;
+}
+
 .Zutaten-button {
     border: 2px solid #ffffff;
     padding: 15px 30px;
@@ -289,7 +326,7 @@ p.flavor-intro {
     margin-bottom: 80px;
 }
 
-.card {
+.card1, .card2, .card3 {
     background-color: #ffffff;
     width: 300px;
     height: 300px;
@@ -303,14 +340,36 @@ p.flavor-intro {
     box-sizing: border-box;
     padding: 16px;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration-line: none;
+}
+.card1 a,
+.card2 a,
+.card3 a {
+    text-decoration: none; 
+    color: inherit;      
+    display: block;      
+}
+.card1:hover {
+    background-color: #f0aa65b6;
+}
+.card2:hover {
+    background-color: #F0ADBEb6;
+}
+.card3:hover {
+    background-color: #D38C78b6;
+}
+.card1:hover h3, .card2:hover h3, .card3:hover h3 {
+    color: #ffffff;
 }
 
-.card img {
+.card1 img, .card2 img, .card3 img {
     width: 100%;
     height: auto;
     flex-grow: 1;
     object-fit: contain;
 }
+
 .flavors {
     padding: 80px 40px;
     background-color: #1a1a1a; 
@@ -397,12 +456,10 @@ p.flavor-intro {
     cursor: pointer;
     border: 2px solid #ffffff;
     box-sizing: border-box;
-    transition: background-color .2s ease, box-shadow .2s ease, color .2s ease;
 }
 
 .details-button-g:hover {
     background: rgba(255,255,255,0.08);
-    box-shadow: 0 0 8px rgba(255,255,255,0.08);
 }
 
 .bottomImage {
@@ -474,7 +531,6 @@ p.flavor-intro {
     font-size: 18px;
     font-family: 'Zain', sans-serif;
     outline: none;
-    transition: box-shadow 0.2s ease;
 }
 
 .contact-form input:focus {
@@ -492,8 +548,6 @@ p.flavor-intro {
     flex: 1; /* Stellt sicher, dass beide Hälften gleich breit sind */
 }
 
-/* --- Submit Button Styling --- */
-
 .submit-button {
     background-color: #ffffff;
     color: #000000;
@@ -505,12 +559,6 @@ p.flavor-intro {
     margin-top: 30px;
     font-size: 18px;
     font-family: Arial, sans-serif; /* Oder eine andere serifenlose Schrift */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #e6e6e6;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 
@@ -603,7 +651,11 @@ p.flavor-intro {
     .menu-icon {
         display: block; /* Zeige den Icon-Container */
     }
-    
+    .flavor-cards {
+        flex-direction: column; /* Stapelt die Karten untereinander */
+        align-items: center; 
+        gap: 100px;
+    }
     /* Icon Farbe und Größe (macht die Icons weiß) */
     .menu-icon img {
         filter: invert(100%); 
