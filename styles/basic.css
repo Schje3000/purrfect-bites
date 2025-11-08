@@ -117,7 +117,8 @@ body {
 }
 .cta-button a, 
 .hero-button a, 
-.details-button a {
+.details-button a,
+.Zutaten-button a, {
     display: block;    
     width: 100%;       
     height: 100%; 
