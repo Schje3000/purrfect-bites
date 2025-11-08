@@ -84,6 +84,14 @@ body {
     justify-content: flex-end;
     flex: 1;
 }
+
+.nav-links a.active-link {
+    text-decoration: underline; 
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+    text-underline-offset: 5px; /* Abstand zur Schrift */
+}
+
 .logo a {
     color: #ffffff;
     text-decoration: none;
