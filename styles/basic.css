@@ -115,7 +115,13 @@ body {
     font-weight: bold;
     border-radius: 5px;
 }
-
+.cta-button a, 
+.hero-button a, 
+.details-button a {
+    display: block;    
+    width: 100%;       
+    height: 100%; 
+}
 .cta-button:hover, .details-button:hover .Zutaten-button:hover {
 	box-shadow: 0 0 5px #ffffff;
 	transition: ease-in-out 0.3s;
